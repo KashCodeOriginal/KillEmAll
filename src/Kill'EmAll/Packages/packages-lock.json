@@ -263,6 +263,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.vanbassum.wakatime": {
+      "version": "https://github.com/vanBassum/Wakatime.Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2b8019be0172192e8fccff2ee833fea8e147f1f1"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
