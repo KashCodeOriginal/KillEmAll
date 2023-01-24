@@ -30,7 +30,7 @@ namespace ECS.Enemy.Spawn.Authoring
                     FieldSize = authoring._fieldSize
                 });
                 
-                AddComponent(new Random.Random()
+                AddComponent(new Random.Component.Random()
                 {
                     Value = Unity.Mathematics.Random.CreateFromIndex(authoring._randomSeed)
                 });

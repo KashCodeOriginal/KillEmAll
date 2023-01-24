@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1555240849038293809}
   - component: {fileID: 2674214978767437844}
   m_Layer: 0
-  m_Name: FirstPersonCharacter
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
       StepHandling: 0
       MaxStepHeight: 0.5
       ExtraStepChecksDistance: 0.1
+      CharacterWidthForStepGroundingCheck: 1
       PreventGroundingWhenMovingTowardsNoGrounding: 1
       HasMaxDownwardSlopeChangeAngle: 0
       MaxDownwardSlopeChangeAngle: 90
@@ -340,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6401532902016766949}
   - component: {fileID: 3909008753188905296}
+  - component: {fileID: 7387121946833564442}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -375,3 +377,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1555240849038293811}
+--- !u!114 &7387121946833564442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463604651959167738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cffade3faa23640921cbb79b1e6bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

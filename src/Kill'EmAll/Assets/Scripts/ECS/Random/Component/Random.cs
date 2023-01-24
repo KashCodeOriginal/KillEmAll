@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace ECS.Random
+namespace ECS.Random.Component
 {
     public struct Random : IComponentData
     {

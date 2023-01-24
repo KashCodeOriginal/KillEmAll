@@ -2,10 +2,10 @@
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
-using NotImplementedException = System.NotImplementedException;
 
 namespace ECS.Enemy.Spawn.System
 {
+    [BurstCompile]
     public partial struct EnemySpawnSystem : ISystem
     {
         public void OnCreate(ref SystemState state) { }
@@ -17,7 +17,7 @@ namespace ECS.Enemy.Spawn.System
         {
             var deltaTime = SystemAPI.Time.DeltaTime;
 
-            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
             
             var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
 
@@ -42,7 +42,7 @@ namespace ECS.Enemy.Spawn.System
         {
             enemySpawnAspect.EnemySpawnTimer -= _deltaTime;
 
-            if (!enemySpawnAspect.TimeToSpawnZombie)
+            if (!enemySpawnAspect.TimeToSpawnEnemy)
             {
                 return;
             }

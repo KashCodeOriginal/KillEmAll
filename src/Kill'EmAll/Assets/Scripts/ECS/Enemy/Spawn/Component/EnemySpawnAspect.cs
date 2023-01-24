@@ -10,10 +10,10 @@ namespace ECS.Enemy.Spawn.Component
         private readonly TransformAspect _transformAspect;
         
         private readonly RefRO<EnemySpawn> _enemySpawn;
-        private readonly RefRW<Random.Random> _random;
+        private readonly RefRW<Random.Component.Random> _random;
         private readonly RefRW<EnemySpawnTimer> _enemySpawnTimer;
 
-        public bool TimeToSpawnZombie => EnemySpawnTimer <= 0f;
+        public bool TimeToSpawnEnemy => EnemySpawnTimer <= 0f;
         
         public float EnemySpawnTimer
         {
