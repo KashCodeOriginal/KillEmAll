@@ -1,7 +1,9 @@
 using ECS.Enemy.Spawn.Authoring;
+using ECS.Environment.Component;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using Random = ECS.Environment.Component.Random;
 
 namespace ECS.Enemy.Spawn.Component
 {
@@ -10,8 +12,8 @@ namespace ECS.Enemy.Spawn.Component
         private readonly TransformAspect _transformAspect;
         
         private readonly RefRO<EnemySpawn> _enemySpawn;
-        private readonly RefRW<Random.Component.Random> _random;
-        private readonly RefRW<EnemySpawnTimer> _enemySpawnTimer;
+        private readonly RefRW<Random> _random;
+        private readonly RefRW<Timer> _enemySpawnTimer;
 
         public bool TimeToSpawnEnemy => EnemySpawnTimer <= 0f;
         

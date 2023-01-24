@@ -1,8 +1,10 @@
 ﻿using System;
 using ECS.Enemy.Spawn.Component;
+using ECS.Environment.Component;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = ECS.Environment.Component.Random;
 
 namespace ECS.Enemy.Spawn.Authoring
 {
@@ -30,12 +32,12 @@ namespace ECS.Enemy.Spawn.Authoring
                     FieldSize = authoring._fieldSize
                 });
                 
-                AddComponent(new Random.Component.Random()
+                AddComponent(new Random()
                 {
                     Value = Unity.Mathematics.Random.CreateFromIndex(authoring._randomSeed)
                 });
 
-                AddComponent(new EnemySpawnTimer());
+                AddComponent(new Timer());
             }
         }
     }
