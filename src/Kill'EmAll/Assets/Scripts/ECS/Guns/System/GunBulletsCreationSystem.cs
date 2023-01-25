@@ -1,5 +1,4 @@
-﻿using System;
-using ECS.Guns.Component;
+﻿using ECS.Guns.Component;
 using Unity.Burst;
 using Unity.Entities;
 using UnityEngine;
@@ -28,24 +27,10 @@ namespace ECS.Guns.System
             {
                 gunAspect.Timer -= deltaTime;
                 
-                /*if (gunAspect.NeedReload && gunAspect.IsReloading)
-                {
-                    if (!gunAspect.IsReloading)
-                    {
-                        gunAspect.Ammo = gunAspect.MaxAmmo;
-                        
-                        gunAspect.IsReloading = false;
-                        
-                        return;
-                    }
-
-                    gunAspect.Timer = gunAspect.ReloadTime;
-                    
-                    gunAspect.IsReloading = true;
-                    
-                    return;
-                }*/
+                TryReload(gunAspect);
                 
+                IsReloaded(gunAspect);
+
                 if (Input.GetButton("Fire1"))
                 {
                     if (!gunAspect.CanShoot)
@@ -54,11 +39,26 @@ namespace ECS.Guns.System
                     }
                     
                     gunAspect.Ammo--;
-
                     gunAspect.Timer = gunAspect.FireRate;
-                        
-                    Debug.Log(gunAspect.Ammo);
                 }
+            }
+        }
+
+        private static void IsReloaded(GunAspect gunAspect)
+        {
+            if (gunAspect.NeedReload && gunAspect.IsReloaded)
+            {
+                gunAspect.IsReloading = false;
+                gunAspect.Ammo = gunAspect.MaxAmmo;
+            }
+        }
+
+        private static void TryReload(GunAspect gunAspect)
+        {
+            if (gunAspect.NeedReload && !gunAspect.IsReloading)
+            {
+                gunAspect.IsReloading = true;
+                gunAspect.Timer = gunAspect.ReloadTime;
             }
         }
     }
