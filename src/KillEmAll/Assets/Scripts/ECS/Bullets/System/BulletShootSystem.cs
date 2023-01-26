@@ -29,6 +29,7 @@ namespace ECS.Bullets.System
         }
     }
     
+    [BurstCompile]
     public partial struct BulletShotJob : IJobEntity
     {
         private readonly float _deltaTime;
@@ -40,6 +41,7 @@ namespace ECS.Bullets.System
             _ecb = ecb;
         }
 
+        [BurstCompile]
         private void Execute(BulletAspect bulletAspect, [EntityIndexInQuery] int entityIndex)
         {
             bulletAspect.Timer += _deltaTime;

@@ -1,5 +1,6 @@
 ﻿using ECS.Movement.Component;
 using ECS.Player.Component;
+using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -8,14 +9,17 @@ namespace ECS.Movement.System
 {
     public partial struct DirectionToPlayerSystem : ISystem
     {
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
         }
 
+        [BurstCompile]
         public void OnDestroy(ref SystemState state)
         {
         }
 
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             foreach (var directMoveAspect in SystemAPI.Query<DirectMoveAspect>())
@@ -36,6 +40,4 @@ namespace ECS.Movement.System
             }
         }
     }
-    
-    
 }
