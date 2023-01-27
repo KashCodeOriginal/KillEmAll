@@ -6,6 +6,7 @@ using Unity.Transforms;
 namespace ECS.Enemy.Spawn.System
 {
     [BurstCompile]
+    [UpdateInGroup(typeof(SimulationSystemGroup))]
     public partial struct EnemySpawnSystem : ISystem
     {
         public void OnCreate(ref SystemState state) { }

@@ -7,7 +7,7 @@ namespace ECS.Raycast.Authoring
 {
     public class RayCastMono : MonoBehaviour
     {
-        [SerializeField] private float _length;
+        [SerializeField] private int _length;
         [SerializeField] private PhysicsCategoryTags  _collidesWith;
         [SerializeField] private PhysicsCategoryTags  _belongsTo;
         [SerializeField] private int _groupIndex;

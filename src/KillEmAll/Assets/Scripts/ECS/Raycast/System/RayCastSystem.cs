@@ -31,10 +31,9 @@ namespace ECS.Raycast.System
             {
                 var rayCastInput = new RaycastInput()
                 {
-
                     Start = localToWorld.Position,
                     End = localToWorld.Position + math.forward(localToWorld.Rotation) * ray.Length,
-                    
+
                     Filter = new CollisionFilter()
                     {
                         CollidesWith = ray.CollidesWith,
@@ -47,7 +46,8 @@ namespace ECS.Raycast.System
                 {
                     Debug.Log("true");
                 }
-   
+                
+                Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
             }
         }
     }
