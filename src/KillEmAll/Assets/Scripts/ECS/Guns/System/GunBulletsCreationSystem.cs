@@ -1,5 +1,5 @@
 ﻿using ECS.BulletRaycast.Component;
-using ECS.Bullets.Component;
+using ECS.Damage.Component;
 using ECS.Guns.Component;
 using ECS.Player.Component;
 using Unity.Burst;
@@ -11,20 +11,16 @@ using UnityEngine;
 
 namespace ECS.Guns.System
 {
-    [BurstCompile]
     public partial struct GunBulletsCreationSystem : ISystem
     {
-        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
         }
-
-        [BurstCompile]
+        
         public void OnDestroy(ref SystemState state)
         {
         }
-
-        [BurstCompile]
+        
         public void OnUpdate(ref SystemState state)
         {
             var deltaTime = SystemAPI.Time.DeltaTime;
@@ -34,6 +30,7 @@ namespace ECS.Guns.System
             var entityManager = state.WorldUnmanaged.EntityManager;
 
             var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            
             var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
 
             foreach (var gunAspect in SystemAPI.Query<GunAspect>())
@@ -50,9 +47,10 @@ namespace ECS.Guns.System
                     {
                         return;
                     }
-
-                    var bulletEntity = ecb.Instantiate(gunAspect.BulletEntity);
                     
+                    gunAspect.Ammo--;
+                    gunAspect.Timer = gunAspect.FireRate;
+
                     float3 newBulletPosition = float3.zero;
                     quaternion newBulletRotation = quaternion.identity;
                     
@@ -66,44 +64,62 @@ namespace ECS.Guns.System
                         newBulletRotation = localToWorld.Rotation;
                     }
 
-                    ecb.SetComponent(bulletEntity, new LocalTransform()
-                    {
-                        Position = newBulletPosition,
-                        Rotation = newBulletRotation,
-                        Scale = 1f
-                    });
+                    var bulletEntity = CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
+
+                    /*ecb.Playback(entityManager);
                     
-                    gunAspect.Ammo--;
-                    gunAspect.Timer = gunAspect.FireRate;
+                    var damage = entityManager.GetComponentData<Bullet>(bulletEntity).Damage;*/
                     
                     foreach (var (ray, localToWorld) in SystemAPI.Query<RayCast, LocalToWorld>())
                     {
-                        var rayCastInput = new RaycastInput()
-                        {
-                            Start = localToWorld.Position,
-                            End = localToWorld.Position + math.forward(localToWorld.Rotation) * ray.Length,
-
-                            Filter = new CollisionFilter()
-                            {
-                                CollidesWith = ray.CollidesWith,
-                                BelongsTo = ray.BelongsTo,
-                                GroupIndex = ray.GroupIndex
-                            }
-                        };
-
-                        if (physicsWorldSingleton.CastRay(rayCastInput, out var hit))
-                        {
-                            var hitEntity = hit.Entity;
-                        }
-                        
-                        Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
+                        CastRay(localToWorld, ray, physicsWorldSingleton, ecb);
                     }
-
-                    var damage = entityManager.GetComponentData<Bullet>(bulletEntity).Damage;
-                        
-                    Debug.Log(damage);
                 }
             }
+            
+        }
+
+        private static Entity CreateBulletEntity(EntityCommandBuffer ecb, GunAspect gunAspect, float3 newBulletPosition,
+            quaternion newBulletRotation)
+        {
+            var bulletEntity = ecb.Instantiate(gunAspect.BulletEntity);
+
+            ecb.SetComponent(bulletEntity, new LocalTransform()
+            {
+                Position = newBulletPosition,
+                Rotation = newBulletRotation,
+                Scale = 1f
+            });
+            
+            return bulletEntity;
+        }
+
+        private static void CastRay(LocalToWorld localToWorld, RayCast ray, PhysicsWorldSingleton physicsWorldSingleton, EntityCommandBuffer ecb)
+        {
+            var rayCastInput = new RaycastInput()
+            {
+                Start = localToWorld.Position,
+                End = localToWorld.Position + math.forward(localToWorld.Rotation) * ray.Length,
+
+                Filter = new CollisionFilter()
+                {
+                    CollidesWith = ray.CollidesWith,
+                    BelongsTo = ray.BelongsTo,
+                    GroupIndex = ray.GroupIndex
+                }
+            };
+
+            if (physicsWorldSingleton.CastRay(rayCastInput, out var hit))
+            {
+                var hitEntity = hit.Entity;
+
+                ecb.AddComponent(hitEntity, new MakeDamage()
+                {
+                    Value = 10
+                });
+            }
+
+            //Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
         }
 
         private static void IsReloaded(GunAspect gunAspect)

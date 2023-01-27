@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace ECS.Health.Authoring
+namespace ECS.Healths.Authoring
 {
     public class HealthMono : MonoBehaviour
     {

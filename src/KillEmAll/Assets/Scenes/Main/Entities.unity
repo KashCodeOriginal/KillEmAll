@@ -289,7 +289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &169263417
 BoxCollider:
@@ -465,7 +465,6 @@ GameObject:
   m_Component:
   - component: {fileID: 223605672}
   - component: {fileID: 223605673}
-  - component: {fileID: 223605674}
   m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
@@ -500,86 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3023638c2eb04f9784f1189ffe94437b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &223605674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223605671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769b11d91d454cc5b30e4f0279a6f91d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _length: 1000
-  _collidesWith:
-    Category00: 0
-    Category01: 1
-    Category02: 0
-    Category03: 0
-    Category04: 0
-    Category05: 0
-    Category06: 0
-    Category07: 0
-    Category08: 0
-    Category09: 0
-    Category10: 0
-    Category11: 0
-    Category12: 0
-    Category13: 0
-    Category14: 0
-    Category15: 0
-    Category16: 0
-    Category17: 0
-    Category18: 0
-    Category19: 0
-    Category20: 0
-    Category21: 0
-    Category22: 0
-    Category23: 0
-    Category24: 0
-    Category25: 0
-    Category26: 0
-    Category27: 0
-    Category28: 0
-    Category29: 0
-    Category30: 0
-    Category31: 0
-  _belongsTo:
-    Category00: 0
-    Category01: 0
-    Category02: 1
-    Category03: 0
-    Category04: 0
-    Category05: 0
-    Category06: 0
-    Category07: 0
-    Category08: 0
-    Category09: 0
-    Category10: 0
-    Category11: 0
-    Category12: 0
-    Category13: 0
-    Category14: 0
-    Category15: 0
-    Category16: 0
-    Category17: 0
-    Category18: 0
-    Category19: 0
-    Category20: 0
-    Category21: 0
-    Category22: 0
-    Category23: 0
-    Category24: 0
-    Category25: 0
-    Category26: 0
-    Category27: 0
-    Category28: 0
-    Category29: 0
-    Category30: 0
-    Category31: 0
-  _groupIndex: 0
 --- !u!1 &581919004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3485939846094631065, guid: e95be3f6ef9cc8243994bdcda968a0e5,
@@ -676,7 +595,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850625531 stripped
 GameObject:
@@ -696,6 +615,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34554d23edbc470aa2f40163944c3dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &850625539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850625531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769b11d91d454cc5b30e4f0279a6f91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _length: 100
+  _collidesWith:
+    Category00: 0
+    Category01: 1
+    Category02: 0
+    Category03: 0
+    Category04: 0
+    Category05: 0
+    Category06: 0
+    Category07: 0
+    Category08: 0
+    Category09: 0
+    Category10: 0
+    Category11: 0
+    Category12: 0
+    Category13: 0
+    Category14: 0
+    Category15: 0
+    Category16: 0
+    Category17: 0
+    Category18: 0
+    Category19: 0
+    Category20: 0
+    Category21: 0
+    Category22: 0
+    Category23: 0
+    Category24: 0
+    Category25: 0
+    Category26: 0
+    Category27: 0
+    Category28: 0
+    Category29: 0
+    Category30: 0
+    Category31: 0
+  _belongsTo:
+    Category00: 0
+    Category01: 0
+    Category02: 1
+    Category03: 0
+    Category04: 0
+    Category05: 0
+    Category06: 0
+    Category07: 0
+    Category08: 0
+    Category09: 0
+    Category10: 0
+    Category11: 0
+    Category12: 0
+    Category13: 0
+    Category14: 0
+    Category15: 0
+    Category16: 0
+    Category17: 0
+    Category18: 0
+    Category19: 0
+    Category20: 0
+    Category21: 0
+    Category22: 0
+    Category23: 0
+    Category24: 0
+    Category25: 0
+    Category26: 0
+    Category27: 0
+    Category28: 0
+    Category29: 0
+    Category30: 0
+    Category31: 0
+  _groupIndex: 0
 --- !u!1 &1063939411
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +725,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1063939413
 MonoBehaviour:
@@ -742,7 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 4538205374016572678, guid: 207aab11a16ef3e429c000ef482e9009,
     type: 3}
-  _spawnRate: 10000
+  _spawnRate: 100000
   _fieldSize:
     x: 500
     y: 1
@@ -1061,6 +1060,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 850625535}
+    - targetCorrespondingSourceObject: {fileID: 3463604651959167738, guid: e95be3f6ef9cc8243994bdcda968a0e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 850625539}
     - targetCorrespondingSourceObject: {fileID: 3485939846094631065, guid: e95be3f6ef9cc8243994bdcda968a0e5,
         type: 3}
       insertIndex: -1
