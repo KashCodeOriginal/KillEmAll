@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace ECS.Raycast.Component
+namespace ECS.BulletRaycast.Component
 {
     public struct RayCast : IComponentData
     {

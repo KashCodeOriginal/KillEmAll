@@ -1,7 +1,11 @@
-﻿using ECS.Guns.Component;
+﻿using ECS.BulletRaycast.Component;
+using ECS.Bullets.Component;
+using ECS.Guns.Component;
+using ECS.Player.Component;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -24,6 +28,10 @@ namespace ECS.Guns.System
         public void OnUpdate(ref SystemState state)
         {
             var deltaTime = SystemAPI.Time.DeltaTime;
+            
+            var physicsWorldSingleton = SystemAPI.GetSingleton<PhysicsWorldSingleton>();
+            
+            var entityManager = state.WorldUnmanaged.EntityManager;
 
             var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
             var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
@@ -67,6 +75,33 @@ namespace ECS.Guns.System
                     
                     gunAspect.Ammo--;
                     gunAspect.Timer = gunAspect.FireRate;
+                    
+                    foreach (var (ray, localToWorld) in SystemAPI.Query<RayCast, LocalToWorld>())
+                    {
+                        var rayCastInput = new RaycastInput()
+                        {
+                            Start = localToWorld.Position,
+                            End = localToWorld.Position + math.forward(localToWorld.Rotation) * ray.Length,
+
+                            Filter = new CollisionFilter()
+                            {
+                                CollidesWith = ray.CollidesWith,
+                                BelongsTo = ray.BelongsTo,
+                                GroupIndex = ray.GroupIndex
+                            }
+                        };
+
+                        if (physicsWorldSingleton.CastRay(rayCastInput, out var hit))
+                        {
+                            var hitEntity = hit.Entity;
+                        }
+                        
+                        Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
+                    }
+
+                    var damage = entityManager.GetComponentData<Bullet>(bulletEntity).Damage;
+                        
+                    Debug.Log(damage);
                 }
             }
         }

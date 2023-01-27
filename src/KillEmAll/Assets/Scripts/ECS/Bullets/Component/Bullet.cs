@@ -6,7 +6,6 @@ namespace ECS.Bullets.Component
     {
         public float Damage;
         public float LifeTime;
-        
         public float Speed;
     }
 }

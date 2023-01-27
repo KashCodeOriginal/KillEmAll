@@ -1,9 +1,9 @@
-﻿using ECS.Raycast.Component;
+﻿using ECS.BulletRaycast.Component;
 using Unity.Entities;
 using Unity.Physics.Authoring;
 using UnityEngine;
 
-namespace ECS.Raycast.Authoring
+namespace ECS.BulletRaycast.Authoring
 {
     public class RayCastMono : MonoBehaviour
     {
