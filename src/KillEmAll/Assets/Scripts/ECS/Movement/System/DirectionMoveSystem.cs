@@ -1,6 +1,7 @@
 ﻿using ECS.Movement.Component;
 using Unity.Burst;
 using Unity.Entities;
+using Unity.Mathematics;
 
 namespace ECS.Movement.System
 {
@@ -41,6 +42,9 @@ namespace ECS.Movement.System
             {
                 directMoveAspect.TransformAspect.LocalPosition +=
                     directMoveAspect.Direction * directMoveAspect.Speed * _deltaTime;
+
+                directMoveAspect.TransformAspect.LocalRotation =
+                    quaternion.LookRotation(directMoveAspect.Direction, math.up());
             }
         }
     }
