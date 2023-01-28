@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace ECS.Player.Component
+namespace ECS.Player
 {
     public struct PlayerViewTag : IComponentData { }
 }

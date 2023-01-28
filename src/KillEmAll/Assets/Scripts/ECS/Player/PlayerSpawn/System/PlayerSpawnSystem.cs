@@ -1,12 +1,4 @@
-﻿using ECS.Player.Component;
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Entities;
-using Unity.Mathematics;
-using Unity.Transforms;
-using UnityEngine;
-
-namespace ECS.Player.System
+﻿namespace ECS.Player.PlayerSpawn.System
 {
     /*public partial struct PlayerSpawnSystem : ISystem
     {

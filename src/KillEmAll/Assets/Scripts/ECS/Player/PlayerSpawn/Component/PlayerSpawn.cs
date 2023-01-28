@@ -1,7 +1,4 @@
-﻿using Unity.Entities;
-using Unity.Mathematics;
-
-namespace ECS.Player.Component
+﻿namespace ECS.Player.PlayerSpawn.Component
 {
     /*public struct PlayerSpawn : IComponentData
     {

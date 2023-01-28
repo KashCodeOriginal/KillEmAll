@@ -1,8 +1,4 @@
-﻿using ECS.Player.Component;
-using Unity.Entities;
-using UnityEngine;
-
-namespace ECS.Player.Authoring
+﻿namespace ECS.Player.PlayerSpawn.Authoring
 {
     /*public class PlayerSpawnMono : MonoBehaviour
     {

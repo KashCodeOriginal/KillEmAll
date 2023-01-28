@@ -1,8 +1,7 @@
-﻿using ECS.Player.Component;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
-namespace ECS.Player.Authoring
+namespace ECS.Player
 {
     public class PlayerTagMono : MonoBehaviour
     {

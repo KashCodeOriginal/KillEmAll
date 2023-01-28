@@ -2,8 +2,7 @@
 using ECS.Bullets.Component;
 using ECS.Damage.Component;
 using ECS.Guns.Component;
-using ECS.Player.Component;
-using Unity.Burst;
+using ECS.Player;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
@@ -27,12 +26,9 @@ namespace ECS.Guns.System
             var deltaTime = SystemAPI.Time.DeltaTime;
             
             var physicsWorldSingleton = SystemAPI.GetSingleton<PhysicsWorldSingleton>();
-            
-            var entityManager = state.WorldUnmanaged.EntityManager;
 
-            var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
-            
-            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
+            var ecb =
+                SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
 
             foreach (var gunAspect in SystemAPI.Query<GunAspect>())
             {
@@ -42,7 +38,7 @@ namespace ECS.Guns.System
                 
                 IsReloaded(gunAspect);
 
-                if (Input.GetButton("Fire1"))
+                if (gunAspect.IsShooting)
                 {
                     if (!gunAspect.CanShoot)
                     {

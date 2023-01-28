@@ -12,6 +12,8 @@ namespace ECS.Guns.Component
         public float FireRate;
 
         public bool IsReloading;
+        
+        public bool IsShooting;
 
         public Entity BulletEntity;
     }

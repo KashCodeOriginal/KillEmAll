@@ -1,5 +1,4 @@
-﻿using ECS.Guns.Component;
-using ECS.Player.Component;
+﻿using ECS.Player;
 using Unity.Entities;
 using UnityEngine;
 

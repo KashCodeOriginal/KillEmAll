@@ -28,6 +28,12 @@ namespace ECS.Guns.Component
         public float ReloadTime => _gun.ValueRO.ReloadTime;
         
         public float FireRate => _gun.ValueRO.FireRate;
+
+        public bool IsShooting
+        {
+            get => _gun.ValueRO.IsShooting;
+            set => _gun.ValueRW.IsShooting = value;
+        }
         
         public bool IsReloading
         {

@@ -1,5 +1,5 @@
 ﻿using ECS.Movement.Component;
-using ECS.Player.Component;
+using ECS.Player;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
