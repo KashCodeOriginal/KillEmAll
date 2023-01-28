@@ -1,4 +1,5 @@
 ﻿using ECS.BulletRaycast.Component;
+using ECS.Bullets.Component;
 using ECS.Damage.Component;
 using ECS.Guns.Component;
 using ECS.Player.Component;
@@ -66,13 +67,11 @@ namespace ECS.Guns.System
 
                     var bulletEntity = CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
 
-                    /*ecb.Playback(entityManager);
-                    
-                    var damage = entityManager.GetComponentData<Bullet>(bulletEntity).Damage;*/
-                    
+                    var damage = SystemAPI.GetComponentLookup<Bullet>(true).GetRefRO(gunAspect.BulletEntity).ValueRO.Damage;
+
                     foreach (var (ray, localToWorld) in SystemAPI.Query<RayCast, LocalToWorld>())
                     {
-                        CastRay(localToWorld, ray, physicsWorldSingleton, ecb);
+                        CastRay(localToWorld, ray, physicsWorldSingleton, ecb, damage);
                     }
                 }
             }
@@ -94,7 +93,8 @@ namespace ECS.Guns.System
             return bulletEntity;
         }
 
-        private static void CastRay(LocalToWorld localToWorld, RayCast ray, PhysicsWorldSingleton physicsWorldSingleton, EntityCommandBuffer ecb)
+        private static void CastRay(LocalToWorld localToWorld, RayCast ray, PhysicsWorldSingleton physicsWorldSingleton,
+            EntityCommandBuffer ecb, float damage)
         {
             var rayCastInput = new RaycastInput()
             {
@@ -115,7 +115,7 @@ namespace ECS.Guns.System
 
                 ecb.AddComponent(hitEntity, new MakeDamage()
                 {
-                    Value = 10
+                    Value = damage
                 });
             }
 
