@@ -24,7 +24,7 @@ namespace ECS.Damage.System
             var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
                 .CreateCommandBuffer(state.WorldUnmanaged);
             
-            foreach (var (healthAspect, damagedTag) in SystemAPI.Query<HealthAspect, DamagedTag>())
+            foreach (var healthAspect in SystemAPI.Query<HealthAspect>().WithAll<DamagedTag>())
             {
                 if (healthAspect.Health <= 0)
                 {

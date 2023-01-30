@@ -3,6 +3,7 @@ using ECS.Guns.System;
 using ECS.Healths.Component;
 using Unity.Burst;
 using Unity.Entities;
+using UnityEngine;
 
 namespace ECS.Damage.System
 {
@@ -24,12 +25,15 @@ namespace ECS.Damage.System
             var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
                 .CreateCommandBuffer(state.WorldUnmanaged);
             
-            foreach (var (healthAspect, makeDamage) in SystemAPI.Query<HealthAspect, MakeDamage>())
+            foreach (var makeDamage in SystemAPI.Query<MakeDamage>())
             {
+                var healthAspect = SystemAPI.GetAspectRW<HealthAspect>(makeDamage.Target);
+                
                 healthAspect.Health -= makeDamage.Value;
                 
-                ecb.RemoveComponent<MakeDamage>(healthAspect.Self);
-                ecb.AddComponent(healthAspect.Self,new DamagedTag());
+                ecb.DestroyEntity(makeDamage.Self);
+                
+                ecb.AddComponent(makeDamage.Target, new DamagedTag());
             }
         }
     }

@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1983751674702600424}
   - component: {fileID: 4995170156212675582}
   - component: {fileID: 7118921784147615083}
-  - component: {fileID: 3800500139618119186}
+  - component: {fileID: 4834772270928700767}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -427,7 +427,7 @@ MonoBehaviour:
     Category30: 0
     Category31: 0
   _groupIndex: 0
---- !u!114 &3800500139618119186
+--- !u!114 &4834772270928700767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -71,7 +71,6 @@ namespace ECS.Guns.System
                     }
                 }
             }
-            
         }
 
         private static Entity CreateBulletEntity(EntityCommandBuffer ecb, GunAspect gunAspect, float3 newBulletPosition,
@@ -109,9 +108,13 @@ namespace ECS.Guns.System
             {
                 var hitEntity = hit.Entity;
 
-                ecb.AddComponent(hitEntity, new MakeDamage()
+                var damageEvent = ecb.CreateEntity();
+
+                ecb.AddComponent(damageEvent, new MakeDamage()
                 {
-                    Value = damage
+                    Self = damageEvent,
+                    Value = damage,
+                    Target = hitEntity
                 });
             }
 
