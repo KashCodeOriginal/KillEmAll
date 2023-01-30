@@ -6,6 +6,8 @@ namespace ECS.Movement.Component
 {
     public readonly partial struct DirectMoveAspect : IAspect
     {
+        public readonly Entity Self;
+        
         public readonly TransformAspect TransformAspect;
         
         private readonly RefRO<Speed> _speed;

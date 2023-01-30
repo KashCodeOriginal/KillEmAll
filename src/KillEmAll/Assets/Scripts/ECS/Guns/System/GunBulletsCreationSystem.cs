@@ -115,7 +115,7 @@ namespace ECS.Guns.System
                 });
             }
 
-            //Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
+            Debug.DrawRay(rayCastInput.Start, rayCastInput.End - rayCastInput.Start, Color.red);
         }
 
         private static void IsReloaded(GunAspect gunAspect)
