@@ -3,6 +3,7 @@ using ECS.Bullets.Component;
 using ECS.Damage.Component;
 using ECS.Guns.Component;
 using ECS.Player;
+using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
@@ -11,6 +12,7 @@ using UnityEngine;
 
 namespace ECS.Guns.System
 {
+    [BurstCompile]
     public partial struct GunBulletsCreationSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
@@ -21,6 +23,7 @@ namespace ECS.Guns.System
         {
         }
         
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             var deltaTime = SystemAPI.Time.DeltaTime;
@@ -29,46 +32,40 @@ namespace ECS.Guns.System
 
             var ecb =
                 SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
-
-            foreach (var gunAspect in SystemAPI.Query<GunAspect>())
+            
+            foreach (var (gunAspect, rayCast, ltw) in SystemAPI.Query<GunAspect, RayCast, LocalToWorld>())
             {
                 gunAspect.Timer -= deltaTime;
                 
                 TryReload(gunAspect);
-                
-                IsReloaded(gunAspect);
 
+                IsReloaded(gunAspect);
+                
                 if (gunAspect.IsShooting)
                 {
-                    if (!gunAspect.CanShoot)
-                    {
-                        return;
-                    }
-                    
                     gunAspect.Ammo--;
                     gunAspect.Timer = gunAspect.FireRate;
+                
 
                     float3 newBulletPosition = float3.zero;
                     quaternion newBulletRotation = quaternion.identity;
-                    
-                    foreach (var localToWorld in SystemAPI.Query<LocalToWorld>().WithAll<BulletSpawnPointTag>())
+
+                
+                    /*foreach (var localToWorld in SystemAPI.Query<LocalToWorld>().WithAll<BulletSpawnPointTag>())
                     {
                         newBulletPosition = localToWorld.Position;
                     }
-
+                
                     foreach (var localToWorld in SystemAPI.Query<LocalToWorld>().WithAll<PlayerViewTag>())
                     {
                         newBulletRotation = localToWorld.Rotation;
-                    }
+                    }*/
 
                     var bulletEntity = CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
 
                     var damage = SystemAPI.GetComponentLookup<Bullet>(true).GetRefRO(gunAspect.BulletEntity).ValueRO.Damage;
 
-                    foreach (var (ray, localToWorld) in SystemAPI.Query<RayCast, LocalToWorld>())
-                    {
-                        CastRay(localToWorld, ray, physicsWorldSingleton, ecb, damage);
-                    }
+                    CastRay(ltw, rayCast, physicsWorldSingleton, ecb, damage);
                 }
             }
         }

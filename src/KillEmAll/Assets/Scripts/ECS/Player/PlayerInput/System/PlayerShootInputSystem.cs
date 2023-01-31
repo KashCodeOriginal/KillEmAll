@@ -1,10 +1,12 @@
 ﻿using ECS.Guns.Component;
 using ECS.Player.PlayerInput.Component;
+using Unity.Burst;
 using Unity.Entities;
 using UnityEngine;
 
 namespace ECS.Player.PlayerInput.System
 {
+    [BurstCompile]
     public partial struct PlayerShootInputSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
@@ -14,7 +16,8 @@ namespace ECS.Player.PlayerInput.System
         public void OnDestroy(ref SystemState state)
         {
         }
-
+           
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             foreach (var gunAspect in SystemAPI.Query<GunAspect>().WithAll<PlayerShootInputTag>())

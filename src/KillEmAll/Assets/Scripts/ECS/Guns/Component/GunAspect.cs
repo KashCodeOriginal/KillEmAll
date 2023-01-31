@@ -5,6 +5,8 @@ namespace ECS.Guns.Component
 {
     public readonly partial struct GunAspect : IAspect
     {
+        public readonly Entity Self;
+        
         private readonly RefRW<Gun> _gun;
         
         private readonly RefRW<Timer> _timer;
@@ -31,7 +33,7 @@ namespace ECS.Guns.Component
 
         public bool IsShooting
         {
-            get => _gun.ValueRO.IsShooting;
+            get => _gun.ValueRO.IsShooting && Timer < 0;
             set => _gun.ValueRW.IsShooting = value;
         }
         
@@ -42,8 +44,6 @@ namespace ECS.Guns.Component
         }
 
         public bool NeedReload => Ammo <= 0;
-
-        public bool CanShoot => Timer <= 0;
 
         public bool IsReloaded => Timer <= 0;
     }

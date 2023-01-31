@@ -1,9 +1,12 @@
 ﻿using ECS.Enemy.Shoot.Component;
 using ECS.Guns.Component;
+using Unity.Burst;
 using Unity.Entities;
+using UnityEngine;
 
 namespace ECS.Enemy.Shoot.System
 {
+    [BurstCompile]
     public partial struct EnemyShootSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
@@ -14,6 +17,7 @@ namespace ECS.Enemy.Shoot.System
         {
         }
 
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             foreach (var (gunAspect, enemyShootAspect) in SystemAPI.Query<GunAspect, EnemyShootAspect>())

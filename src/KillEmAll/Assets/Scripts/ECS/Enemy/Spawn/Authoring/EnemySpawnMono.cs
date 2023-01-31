@@ -1,5 +1,4 @@
-﻿using System;
-using ECS.Enemy.Spawn.Component;
+﻿using ECS.Enemy.Spawn.Component;
 using ECS.Environment.Component;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -14,7 +13,7 @@ namespace ECS.Enemy.Spawn.Authoring
         [SerializeField] private float _spawnRate;
         [SerializeField] private float3 _fieldSize;
 
-        [SerializeField] private uint _randomSeed;
+        private uint _randomSeed;
 
         private void Awake()
         {

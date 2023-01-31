@@ -24,8 +24,8 @@ namespace ECS.Movement.System
 
             var ecb =
                 SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
-                    .CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(); 
-            
+                    .CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
+
             new DirectMoveJob(deltaTime, ecb).ScheduleParallel();
         }
     }
@@ -43,22 +43,18 @@ namespace ECS.Movement.System
         }
 
         [BurstCompile]
-        private void Execute(EnemyShootAspect shootAspect, DirectMoveAspect directMoveAspect, [EntityIndexInQuery] int sortKey)
+        private void Execute(DirectMoveAspect directMoveAspect)
         {
             if (directMoveAspect.IsTargetReached)
             {
-                shootAspect.IsShooting = true;
                 return;
             }
 
-            shootAspect.IsShooting = false;
-            
             directMoveAspect.TransformAspect.LocalPosition +=
                 directMoveAspect.Direction * directMoveAspect.Speed * _deltaTime;
 
             directMoveAspect.TransformAspect.LocalRotation =
                 quaternion.LookRotation(directMoveAspect.Direction, math.up());
-            
         }
     }
 }

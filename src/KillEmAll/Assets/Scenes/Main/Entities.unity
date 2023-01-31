@@ -569,12 +569,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 4538205374016572678, guid: 207aab11a16ef3e429c000ef482e9009,
     type: 3}
-  _spawnRate: 10
+  _spawnRate: 5
   _fieldSize:
-    x: 500
+    x: 50
     y: 1
-    z: 500
-  _randomSeed: 0
+    z: 50
 --- !u!1001 &1245987603
 PrefabInstance:
   m_ObjectHideFlags: 0

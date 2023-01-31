@@ -10,7 +10,10 @@ namespace ECS.Enemy.Shoot.Authoring
         {
             public override void Bake(EnemyShootMono authoring)
             {
-                AddComponent<EnemyShoot>();
+                AddComponent(new EnemyShoot()
+                {
+                    IsShooting = false
+                });
             }
         }
     }
