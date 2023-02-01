@@ -5,8 +5,6 @@ namespace ECS.Guns.Component
 {
     public readonly partial struct GunAspect : IAspect
     {
-        public readonly Entity Self;
-        
         private readonly RefRW<Gun> _gun;
         
         private readonly RefRW<Timer> _timer;
@@ -24,6 +22,8 @@ namespace ECS.Guns.Component
         }
 
         public Entity BulletEntity => _gun.ValueRO.BulletEntity;
+        public Entity BulletSpawnPoint => _gun.ValueRO.BulletSpawnPoint;
+        public Entity EntityView => _gun.ValueRO.EntityView;
 
         public int MaxAmmo => _gun.ValueRO.MaxAmmo;
         

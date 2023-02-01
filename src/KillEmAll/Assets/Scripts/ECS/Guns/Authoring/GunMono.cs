@@ -12,6 +12,9 @@ namespace ECS.Guns.Authoring
         [SerializeField] private float _reloadTime;
         [SerializeField] private float _fireRate;
         [SerializeField] private GameObject _bulletPrefab;
+        
+        [SerializeField] private GameObject _bulletSpawnPoint;
+        [SerializeField] private GameObject _entityView;
 
         private class GunBaker : Baker<GunMono>
         {
@@ -23,7 +26,9 @@ namespace ECS.Guns.Authoring
                     MaxAmmo = authoring._maxAmmo,
                     ReloadTime = authoring._reloadTime,
                     FireRate = authoring._fireRate,
-                    BulletEntity = GetEntity(authoring._bulletPrefab)
+                    BulletEntity = GetEntity(authoring._bulletPrefab),
+                    BulletSpawnPoint = GetEntity(authoring._bulletSpawnPoint),
+                    EntityView = GetEntity(authoring._entityView)
                 });
                 
                 AddComponent<Timer>();

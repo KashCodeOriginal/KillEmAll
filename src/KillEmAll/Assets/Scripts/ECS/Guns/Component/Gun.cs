@@ -16,5 +16,8 @@ namespace ECS.Guns.Component
         public bool IsShooting;
 
         public Entity BulletEntity;
+        
+        public Entity BulletSpawnPoint;
+        public Entity EntityView;
     }
 }

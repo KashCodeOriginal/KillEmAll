@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8fae96942b47678256b69369179666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 100000
+  _value: 500
 --- !u!1 &3463604651959167738
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +575,8 @@ MonoBehaviour:
   _fireRate: 0.2
   _bulletPrefab: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
     type: 3}
+  _bulletSpawnPoint: {fileID: 223605671}
+  _entityView: {fileID: 3463604651959167738}
 --- !u!114 &237723507
 MonoBehaviour:
   m_ObjectHideFlags: 0
