@@ -1,2 +1,2 @@
 # KillEmAll
-## DOTS pet project
+## Unity DOTS 1.0 pet project
