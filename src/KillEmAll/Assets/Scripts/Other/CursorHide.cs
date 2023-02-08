@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace MonoBehaviours
+namespace Other
 {
-    public class CursorHide : UnityEngine.MonoBehaviour
+    public class CursorHide : MonoBehaviour
     {
         private void Start()
         {

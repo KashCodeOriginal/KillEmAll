@@ -11,8 +11,8 @@ namespace ECS.Guns.Component
 
         public int Ammo
         {
-            get => _gun.ValueRO.Ammo;
-            set => _gun.ValueRW.Ammo = value;
+            get => _gun.ValueRO.CurrentAmmo;
+            set => _gun.ValueRW.CurrentAmmo = value;
         }
 
         public float Timer
@@ -31,12 +31,14 @@ namespace ECS.Guns.Component
         
         public float FireRate => _gun.ValueRO.FireRate;
 
+        public float Damage => _gun.ValueRO.Damage;
+
         public bool IsShooting
         {
             get => _gun.ValueRO.IsShooting && Timer < 0;
             set => _gun.ValueRW.IsShooting = value;
         }
-        
+
         public bool IsReloading
         {
             get => _gun.ValueRO.IsReloading;

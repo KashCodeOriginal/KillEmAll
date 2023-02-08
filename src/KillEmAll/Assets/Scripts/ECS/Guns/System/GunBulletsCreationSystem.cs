@@ -54,8 +54,7 @@ namespace ECS.Guns.System
                         .GetRefRO(gunAspect.EntityView)
                         .ValueRO.Rotation;
 
-                    var damage = GetComponentLookup<Bullet>(true)
-                        .GetRefRO(gunAspect.BulletEntity).ValueRO.Damage;
+                    var damage = gunAspect.Damage;
                     
                     var bulletEntity = CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
 

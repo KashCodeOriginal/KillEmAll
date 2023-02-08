@@ -13,5 +13,7 @@ namespace ECS.Healths.Component
             get => _health.ValueRW.Value;
             set => _health.ValueRW.Value = value;
         }
+        
+        public float MaxHealth => _health.ValueRO.MaxValue;
     }
 }

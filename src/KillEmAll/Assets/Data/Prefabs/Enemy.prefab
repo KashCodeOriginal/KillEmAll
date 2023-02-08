@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 100
+  _maxValue: 100
 --- !u!114 &1983751674702600424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,12 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9a4d94d8c84944aa82a6dace4ca240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammo: 10
-  _maxAmmo: 10
-  _reloadTime: 10
-  _fireRate: 5
-  _bulletPrefab: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
-    type: 3}
+  _gunStaticData: {fileID: 11400000, guid: e7f940e04073d884db1a49ca44dc8cae, type: 2}
   _bulletSpawnPoint: {fileID: 451269651291464383}
   _entityView: {fileID: 4538205374016572678}
 --- !u!114 &7841230342707305687

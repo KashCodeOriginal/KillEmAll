@@ -6,7 +6,6 @@ namespace ECS.Bullets.Authoring
 {
     public class BulletMono : MonoBehaviour
     {
-        [SerializeField] private float _damage;
         [SerializeField] private float _lifeTime;
         [SerializeField] private float _speed;
         
@@ -17,7 +16,6 @@ namespace ECS.Bullets.Authoring
             {
                 AddComponent(new Component.Bullet()
                 {
-                    Damage = authoring._damage,
                     LifeTime = authoring._lifeTime,
                     Speed = authoring._speed
                 });

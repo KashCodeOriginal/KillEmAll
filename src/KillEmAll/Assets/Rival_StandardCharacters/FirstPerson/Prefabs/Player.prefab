@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 223605672}
-  - component: {fileID: 223605673}
   m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 2501290644312296306}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
---- !u!114 &223605673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223605671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3023638c2eb04f9784f1189ffe94437b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1555240848202863130
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 500
+  _maxValue: 500
 --- !u!1 &3463604651959167738
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +401,6 @@ GameObject:
   - component: {fileID: 6401532902016766949}
   - component: {fileID: 3909008753188905296}
   - component: {fileID: 7387121946833564442}
-  - component: {fileID: 850625535}
   - component: {fileID: 850625539}
   - component: {fileID: 237723506}
   - component: {fileID: 237723507}
@@ -463,18 +450,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91cffade3faa23640921cbb79b1e6bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &850625535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463604651959167738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34554d23edbc470aa2f40163944c3dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &850625539
@@ -569,12 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9a4d94d8c84944aa82a6dace4ca240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammo: 20
-  _maxAmmo: 20
-  _reloadTime: 5
-  _fireRate: 0.2
-  _bulletPrefab: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
-    type: 3}
+  _gunStaticData: {fileID: 0}
   _bulletSpawnPoint: {fileID: 223605671}
   _entityView: {fileID: 3463604651959167738}
 --- !u!114 &237723507

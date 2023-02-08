@@ -13,7 +13,6 @@ namespace ECS.Bullets.Component
         private readonly RefRO<Bullet> _bullet;
         private readonly RefRW<Timer> _timer;
         
-        
         public float LifeTime => _bullet.ValueRO.LifeTime;
         public float Speed => _bullet.ValueRO.Speed;
         
