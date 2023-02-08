@@ -12,5 +12,7 @@ namespace Other.Data.Static
         [field: SerializeField] public float ReloadTime { get; private set; }
         [field: SerializeField] public float FireRate { get; private set; }
         [field: SerializeField] public GameObject BulletPrefab { get; private set; }
+        [field: SerializeField] public GameObject GunPrefab { get; private set; }
+        [field: SerializeField] public Sprite GunSprite { get; private set; }
     }
 }
