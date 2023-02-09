@@ -20,6 +20,7 @@ MonoBehaviour:
   <FireRate>k__BackingField: 0.2
   <BulletPrefab>k__BackingField: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
     type: 3}
-  <GunPrefab>k__BackingField: {fileID: 0}
+  <GunPrefab>k__BackingField: {fileID: 2660920044317813385, guid: 9a9de3e81b07d8b4fb745f67be914eea,
+    type: 3}
   <GunSprite>k__BackingField: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7,
     type: 3}
