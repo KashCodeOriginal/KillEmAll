@@ -1,9 +1,9 @@
 ﻿using ECS.Damage.Component;
-using ECS.Guns.System;
 using ECS.Healths.Component;
 using Unity.Burst;
 using Unity.Entities;
 using UnityEngine;
+using GunBulletsCreationSystem = ECS.Guns.Shoot.System.GunBulletsCreationSystem;
 
 namespace ECS.Damage.System
 {

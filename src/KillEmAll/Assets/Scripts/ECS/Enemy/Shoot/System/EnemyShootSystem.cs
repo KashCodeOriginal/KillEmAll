@@ -1,8 +1,7 @@
 ﻿using ECS.Enemy.Shoot.Component;
-using ECS.Guns.Component;
+using ECS.Guns.Shoot.Component;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace ECS.Enemy.Shoot.System
 {
