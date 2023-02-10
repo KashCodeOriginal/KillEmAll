@@ -1,4 +1,4 @@
-﻿using Other.Data.Static;
+﻿using ECS.Guns.Data.Component;
 using Unity.Entities;
 
 namespace ECS.Guns.Shoot.Component
@@ -6,19 +6,14 @@ namespace ECS.Guns.Shoot.Component
     public struct Gun : IComponentData
     {
         public int CurrentAmmo;
-        public int MaxAmmo;
-        public float Damage;
-
-        public float ReloadTime;
-
-        public float FireRate;
+        
+        public GunStatsConfigData GunStatsConfigData;
 
         public bool IsReloading;
-
         public bool IsShooting;
+        
 
-        public Entity BulletEntity;
-
+        public Entity BulletPrefab;
         public Entity BulletSpawnPoint;
         public Entity EntityView;
     }

@@ -1,5 +1,4 @@
-﻿using ECS.Guns.Shoot.Authoring;
-using ECS.Guns.Shoot.Component;
+﻿using ECS.Guns.Shoot.Component;
 using ECS.Player.PlayerInput.GunSwitch.Component;
 using Unity.Burst;
 using Unity.Entities;

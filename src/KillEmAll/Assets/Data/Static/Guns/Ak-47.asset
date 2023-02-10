@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec32bcbf2974f95983ca55d36600cbe, type: 3}
   m_Name: Ak-47
   m_EditorClassIdentifier: 
-  <GunType>k__BackingField: 0
-  <Damage>k__BackingField: 25
-  <GunName>k__BackingField: Ak-47
-  <MaxAmmo>k__BackingField: 30
-  <ReloadTime>k__BackingField: 5
-  <FireRate>k__BackingField: 0.2
-  <BulletPrefab>k__BackingField: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
-    type: 3}
-  <GunPrefab>k__BackingField: {fileID: 2660920044317813385, guid: 9a9de3e81b07d8b4fb745f67be914eea,
-    type: 3}
-  <GunSprite>k__BackingField: {fileID: 21300000, guid: ec03f79379868c642b48ae5ddc821b6d,
-    type: 3}
+  <GunStatsConfigData>k__BackingField:
+    GunType: 0
+    Damage: 25
+    MaxAmmo: 30
+    ReloadTime: 5
+    FireRate: 0.2
+  <GunViewConfigData>k__BackingField:
+    GunName: Ak-47
+    GunSprite: {fileID: 21300000, guid: e36d1a38d7aa309409e80bf66a089330, type: 3}
+    BulletPrefab: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
+      type: 3}
+    GunPrefab: {fileID: 2660920044317813385, guid: 9a9de3e81b07d8b4fb745f67be914eea,
+      type: 3}

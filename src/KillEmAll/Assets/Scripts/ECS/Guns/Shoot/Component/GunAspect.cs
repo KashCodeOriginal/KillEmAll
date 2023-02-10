@@ -1,4 +1,5 @@
 ﻿using ECS.Environment.Component;
+using ECS.Guns.Data.Component;
 using Unity.Entities;
 
 namespace ECS.Guns.Shoot.Component
@@ -8,8 +9,8 @@ namespace ECS.Guns.Shoot.Component
         public readonly Entity Self;
         
         private readonly RefRW<Gun> _gun;
-        
         private readonly RefRW<Timer> _timer;
+
 
         public int Ammo
         {
@@ -22,18 +23,18 @@ namespace ECS.Guns.Shoot.Component
             get => _timer.ValueRO.Value;
             set => _timer.ValueRW.Value = value;
         }
-
-        public Entity BulletEntity => _gun.ValueRO.BulletEntity;
+        
+        public Entity BulletPrefab => _gun.ValueRO.BulletPrefab;
         public Entity BulletSpawnPoint => _gun.ValueRO.BulletSpawnPoint;
         public Entity EntityView => _gun.ValueRO.EntityView;
 
-        public int MaxAmmo => _gun.ValueRO.MaxAmmo;
+        public int MaxAmmo => _gun.ValueRO.GunStatsConfigData.MaxAmmo;
         
-        public float ReloadTime => _gun.ValueRO.ReloadTime;
+        public float ReloadTime => _gun.ValueRO.GunStatsConfigData.ReloadTime;
         
-        public float FireRate => _gun.ValueRO.FireRate;
+        public float FireRate => _gun.ValueRO.GunStatsConfigData.FireRate;
 
-        public float Damage => _gun.ValueRO.Damage;
+        public float Damage => _gun.ValueRO.GunStatsConfigData.Damage;
 
         public bool IsShooting
         {

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec32bcbf2974f95983ca55d36600cbe, type: 3}
   m_Name: M4A1
   m_EditorClassIdentifier: 
-  <GunType>k__BackingField: 0
-  <Damage>k__BackingField: 15
-  <GunName>k__BackingField: M4A1
-  <MaxAmmo>k__BackingField: 30
-  <ReloadTime>k__BackingField: 5
-  <FireRate>k__BackingField: 0.2
-  <BulletPrefab>k__BackingField: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
-    type: 3}
-  <GunPrefab>k__BackingField: {fileID: 2660920044317813385, guid: 9a9de3e81b07d8b4fb745f67be914eea,
-    type: 3}
-  <GunSprite>k__BackingField: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7,
-    type: 3}
+  <GunStatsConfigData>k__BackingField:
+    GunType: 0
+    Damage: 1
+    MaxAmmo: 1
+    ReloadTime: 5
+    FireRate: 1
+  <GunViewConfigData>k__BackingField:
+    GunName: M4A1
+    GunSprite: {fileID: 21300000, guid: 5955491dc8dcecb4a993d9a008cf65a7, type: 3}
+    BulletPrefab: {fileID: 6250137178120768246, guid: f7206aeb5d04ea04888cd7d165423d37,
+      type: 3}
+    GunPrefab: {fileID: 2660920044317813385, guid: 9a9de3e81b07d8b4fb745f67be914eea,
+      type: 3}

@@ -1,5 +1,6 @@
 ﻿using ECS.BulletRaycast.Component;
 using ECS.Damage.Component;
+using ECS.Guns.Data.Component;
 using ECS.Guns.Shoot.Component;
 using Unity.Burst;
 using Unity.Entities;
@@ -65,7 +66,7 @@ namespace ECS.Guns.Shoot.System
         private static Entity CreateBulletEntity(EntityCommandBuffer ecb, GunAspect gunAspect, float3 newBulletPosition,
             quaternion newBulletRotation)
         {
-            var bulletEntity = ecb.Instantiate(gunAspect.BulletEntity);
+            var bulletEntity = ecb.Instantiate(gunAspect.BulletPrefab);
 
             ecb.SetComponent(bulletEntity, new LocalTransform()
             {
