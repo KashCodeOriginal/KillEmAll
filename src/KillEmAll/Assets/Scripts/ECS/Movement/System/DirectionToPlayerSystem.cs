@@ -7,6 +7,7 @@ using Unity.Transforms;
 
 namespace ECS.Movement.System
 {
+    [BurstCompile]
     public partial struct DirectionToPlayerSystem : ISystem
     {
         [BurstCompile]

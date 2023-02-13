@@ -1,16 +1,12 @@
 ﻿using ECS.Environment.Component;
-using ECS.Guns.Data.Component;
 using Unity.Entities;
 
 namespace ECS.Guns.Shoot.Component
 {
     public readonly partial struct GunAspect : IAspect
     {
-        public readonly Entity Self;
-        
         private readonly RefRW<Gun> _gun;
         private readonly RefRW<Timer> _timer;
-
 
         public int Ammo
         {
@@ -35,6 +31,7 @@ namespace ECS.Guns.Shoot.Component
         public float FireRate => _gun.ValueRO.GunStatsConfigData.FireRate;
 
         public float Damage => _gun.ValueRO.GunStatsConfigData.Damage;
+        public float ShootRange => _gun.ValueRO.GunStatsConfigData.ShootRange;
 
         public bool IsShooting
         {

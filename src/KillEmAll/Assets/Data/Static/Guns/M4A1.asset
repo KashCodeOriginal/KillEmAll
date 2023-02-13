@@ -15,9 +15,10 @@ MonoBehaviour:
   <GunStatsConfigData>k__BackingField:
     GunType: 0
     Damage: 1
-    MaxAmmo: 1
+    MaxAmmo: 30
     ReloadTime: 5
-    FireRate: 1
+    FireRate: 0.5
+    ShootRange: 10
   <GunViewConfigData>k__BackingField:
     GunName: M4A1
     GunSprite: {fileID: 21300000, guid: 5955491dc8dcecb4a993d9a008cf65a7, type: 3}

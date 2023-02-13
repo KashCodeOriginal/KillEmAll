@@ -2,6 +2,7 @@
 using ECS.Guns.Shoot.Component;
 using Unity.Burst;
 using Unity.Entities;
+using UnityEngine;
 
 namespace ECS.Enemy.Shoot.System
 {

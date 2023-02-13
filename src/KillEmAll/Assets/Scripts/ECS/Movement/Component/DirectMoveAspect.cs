@@ -25,6 +25,12 @@ namespace ECS.Movement.Component
             set => _directMove.ValueRW.DistanceFromTarget = value;
         }
         
+        public float SafetyDistanceFromDirection
+        {
+            get => _directMove.ValueRO.SafetyDistanceFromTarget;
+            set => _directMove.ValueRW.SafetyDistanceFromTarget = value;
+        }
+        
         public bool IsTargetReached => DistanceFromDirection <= _directMove.ValueRO.SafetyDistanceFromTarget;
         
         public float Speed => _speed.ValueRO.MoveSpeed;

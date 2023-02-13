@@ -11,7 +11,6 @@ namespace ECS.Guns.Shoot.Component
 
         public bool IsReloading;
         public bool IsShooting;
-        
 
         public Entity BulletPrefab;
         public Entity BulletSpawnPoint;

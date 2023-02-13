@@ -12,8 +12,6 @@ namespace ECS.Guns.Data.Component
         public int MaxAmmo;
         public float ReloadTime;
         public float FireRate;
-        
-        public Entity BulletPrefab;
-        public Entity GunPrefab;
+        public float ShootRange;
     }
 }
