@@ -24,14 +24,14 @@ namespace ECS.Guns.Shoot.Component
         public Entity BulletSpawnPoint => _gun.ValueRO.BulletSpawnPoint;
         public Entity EntityView => _gun.ValueRO.EntityView;
 
-        public int MaxAmmo => _gun.ValueRO.GunStatsConfigData.MaxAmmo;
+        public int MaxAmmo => _gun.ValueRO.GunConfigData.MaxAmmo;
         
-        public float ReloadTime => _gun.ValueRO.GunStatsConfigData.ReloadTime;
+        public float ReloadTime => _gun.ValueRO.GunConfigData.ReloadTime;
         
-        public float FireRate => _gun.ValueRO.GunStatsConfigData.FireRate;
+        public float FireRate => _gun.ValueRO.GunConfigData.FireRate;
 
-        public float Damage => _gun.ValueRO.GunStatsConfigData.Damage;
-        public float ShootRange => _gun.ValueRO.GunStatsConfigData.ShootRange;
+        public float Damage => _gun.ValueRO.GunConfigData.Damage;
+        public float ShootRange => _gun.ValueRO.GunConfigData.ShootRange;
 
         public bool IsShooting
         {

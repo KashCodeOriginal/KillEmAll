@@ -9,6 +9,8 @@ namespace ECS.Enemy.Spawn.Component
 {
     public readonly partial struct EnemySpawnAspect : IAspect
     {
+        public readonly Entity Self;
+        
         private readonly TransformAspect _transformAspect;
         
         private readonly RefRO<EnemySpawn> _enemySpawn;

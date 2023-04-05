@@ -20,8 +20,8 @@ namespace ECS.Guns.Shoot.Authoring
                 
                 AddComponent(new Gun()
                 {
-                    CurrentAmmo = authoring._gunStaticData.GunStatsConfigData.MaxAmmo,
-                    GunStatsConfigData = authoring._gunStaticData.GunStatsConfigData,
+                    CurrentAmmo = authoring._gunStaticData.GunConfigData.MaxAmmo,
+                    GunConfigData = authoring._gunStaticData.GunConfigData,
                     BulletSpawnPoint = GetEntity(authoring._bulletSpawnPoint),
                     EntityView = GetEntity(authoring._entityView),
                     BulletPrefab = GetEntity(authoring._gunStaticData.GunViewConfigData.BulletPrefab)

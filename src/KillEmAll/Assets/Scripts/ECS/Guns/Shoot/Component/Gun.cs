@@ -7,7 +7,7 @@ namespace ECS.Guns.Shoot.Component
     {
         public int CurrentAmmo;
         
-        public GunStatsConfigData GunStatsConfigData;
+        public GunConfigData GunConfigData;
 
         public bool IsReloading;
         public bool IsShooting;

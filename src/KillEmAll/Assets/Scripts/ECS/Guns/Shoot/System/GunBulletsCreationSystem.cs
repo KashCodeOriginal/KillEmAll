@@ -33,7 +33,7 @@ namespace ECS.Guns.Shoot.System
             var ecb =
                 GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
             
-            foreach (var (gunAspect, rayCast, ltw) in Query<GunAspect, RayCast, LocalToWorld>())
+            foreach (var (gunAspect, rayCast) in Query<GunAspect, RayCast>())
             {
                 gunAspect.Timer -= deltaTime;
                 
@@ -46,24 +46,19 @@ namespace ECS.Guns.Shoot.System
                     gunAspect.Ammo--;
                     gunAspect.Timer = gunAspect.FireRate;
 
-                    var newBulletPosition = GetComponentLookup<LocalToWorld>(true)
-                            .GetRefRO(gunAspect.BulletSpawnPoint)
-                            .ValueRO.Position;
-                    
-                    var newBulletRotation = GetComponentLookup<LocalToWorld>(true)
-                        .GetRefRO(gunAspect.EntityView)
-                        .ValueRO.Rotation;
+                    var newBulletPosition = GetComponent<LocalToWorld>(gunAspect.BulletSpawnPoint).Position;
+                    var newBulletRotation = GetComponent<LocalToWorld>(gunAspect.EntityView).Rotation;
 
                     var damage = gunAspect.Damage;
                     
-                    var bulletEntity = CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
+                    CreateBulletEntity(ecb, gunAspect, newBulletPosition, newBulletRotation);
 
-                    CastRay(ltw, rayCast, physicsWorldSingleton, ecb, damage);
+                    CastRay(newBulletPosition, newBulletRotation, rayCast, physicsWorldSingleton, ecb, damage);
                 }
             }
         }
 
-        private static Entity CreateBulletEntity(EntityCommandBuffer ecb, GunAspect gunAspect, float3 newBulletPosition,
+        private static void CreateBulletEntity(EntityCommandBuffer ecb, GunAspect gunAspect, float3 newBulletPosition,
             quaternion newBulletRotation)
         {
             var bulletEntity = ecb.Instantiate(gunAspect.BulletPrefab);
@@ -74,17 +69,15 @@ namespace ECS.Guns.Shoot.System
                 Rotation = newBulletRotation,
                 Scale = 1f
             });
-            
-            return bulletEntity;
         }
 
-        private static void CastRay(LocalToWorld localToWorld, RayCast ray, PhysicsWorldSingleton physicsWorldSingleton,
+        private static void CastRay(float3 localToWorld, quaternion rotation, RayCast ray, PhysicsWorldSingleton physicsWorldSingleton,
             EntityCommandBuffer ecb, float damage)
         {
             var rayCastInput = new RaycastInput()
             {
-                Start = localToWorld.Position,
-                End = localToWorld.Position + math.forward(localToWorld.Rotation) * ray.Length,
+                Start = localToWorld,
+                End = localToWorld + math.forward(rotation) * ray.Length,
 
                 Filter = new CollisionFilter()
                 {

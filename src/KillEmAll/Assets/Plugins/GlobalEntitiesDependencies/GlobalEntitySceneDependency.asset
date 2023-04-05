@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362df62b1e0c4aa3ac7547624edba0bb, type: 3}
-  m_Name: GunsData
+  m_Script: {fileID: 11500000, guid: 83423c6821253f946aa2dd9db23584ed, type: 3}
+  m_Name: GlobalEntitySceneDependency
   m_EditorClassIdentifier: 
-  <Guns>k__BackingField:
-  - {fileID: 11400000, guid: e32c81ddddc4a6740b3fa13406cbe32a, type: 2}
-  - {fileID: 11400000, guid: e7f940e04073d884db1a49ca44dc8cae, type: 2}
+  cacheGUID:
+    Value:
+      x: 3666706925
+      y: 1112266096
+      z: 567534008
+      w: 2641870151

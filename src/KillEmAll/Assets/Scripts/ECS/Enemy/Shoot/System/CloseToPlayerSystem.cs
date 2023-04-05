@@ -1,9 +1,9 @@
-﻿using ECS.Enemy.Shoot.Component;
+﻿using ECS.Enemy.Refs.Component;
+using ECS.Enemy.Shoot.Component;
 using ECS.Movement.Component;
 using ECS.Movement.System;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace ECS.Enemy.Shoot.System
 {
@@ -19,13 +19,16 @@ namespace ECS.Enemy.Shoot.System
         {
         }
 
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
             foreach (var directMoveAspect in SystemAPI.Query<DirectMoveAspect>())
             {
-                var childFromEntity = SystemAPI.GetBuffer<LinkedEntityGroup>(directMoveAspect.Self);
+                var gunComponentLookup = SystemAPI.GetComponentLookup<EnemyChildRefs>();
 
-                var shootAspect = SystemAPI.GetAspectRW<EnemyShootAspect>(childFromEntity[2].Value);
+                var gun = gunComponentLookup.GetRefRO(directMoveAspect.Self).ValueRO.Gun;
+
+                var shootAspect = SystemAPI.GetAspectRW<EnemyShootAspect>(gun);
 
                 directMoveAspect.SafetyDistanceFromDirection = shootAspect.ShootRange;
                 

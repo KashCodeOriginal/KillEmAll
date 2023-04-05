@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 8345238639680259111}
   - component: {fileID: 2316450309131298997}
   - component: {fileID: 6923728624081798235}
+  - component: {fileID: 1189707060395715943}
   - component: {fileID: 1983751674702600424}
   m_Layer: 0
   m_Name: Enemy
@@ -187,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594d69ea89924309ad1f7b614c7518a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
+  _moveSpeed: 20
 --- !u!114 &2316450309131298997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3ea0f331924213a9e48677e0ea40af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _safetyDistanceFromTarget: 3
 --- !u!114 &6923728624081798235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +215,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _value: 100
   _maxValue: 100
+--- !u!114 &1189707060395715943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4538205374016572678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6253563e693423393702274d4d5a978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gun: {fileID: 8091297901572722854}
 --- !u!114 &1983751674702600424
 MonoBehaviour:
   m_ObjectHideFlags: 0

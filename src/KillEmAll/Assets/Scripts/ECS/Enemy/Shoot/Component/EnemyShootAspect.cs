@@ -14,6 +14,6 @@ namespace ECS.Enemy.Shoot.Component
             set => _enemyShoot.ValueRW.IsShooting = value;
         }
         
-        public float ShootRange => _gun.ValueRO.GunStatsConfigData.ShootRange;
+        public float ShootRange => _gun.ValueRO.GunConfigData.ShootRange;
     }
 }
